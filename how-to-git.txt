@@ -1,0 +1,31 @@
+Follow the following sequence of steps with github and you will
+have shady knowledge about how to do really simple github stuff 
+(i.e. you will have the same level of knowledge as Evan about github)
+
+Please add to this list (append to the file instead of editing pls) if
+you know or find out ways to use github that are actually legit so we can
+all learn!! There's something about pull requests and commits and 
+different branches that's apparently useful, I just don't know what any of
+that is. Okay now for the steps:
+
+How to set up your local repository clone:
+git clone https://github.com/evanlohn/winterbreak-2016.git
+
+
+How to "save your edits" to files in github
+(NEVER EVER EVER DO THIS PROCESS IF YOUR CODE DOESNT WORK I.E. IT BREAKS 
+THE APP. ALWAYS TEST FIRST AN MAKE SURE THE APP IS OKAY AND YOUR CODE DOES WHAT YOU WANT IT TO DO.
+
+git add <filename> (do this for each file you want changes saved for; 
+github might require that you do this for all things you've modified lol)
+git pull
+git commit -m <descriptive message explaining what changes you made>
+(at the commit step, github might detect that someone else changed code
+ in the same place you did. Oops. In this case it puts these really weird 
+lines in the files in the places where there are conflicts, and it's up to you to git commit again :(
+git pull (cuz heck why not)
+git push (pray it works)
+
+Now your work has been saved! awesome! use git pull a lot, not just when
+ you yourself are committing edits, because it gets other people's work 
+from the server.
