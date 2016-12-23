@@ -19,7 +19,8 @@ THE APP. ALWAYS TEST FIRST AN MAKE SURE THE APP IS OKAY AND YOUR CODE DOES WHAT 
 git add <filename> (do this for each file you want changes saved for; 
 github might require that you do this for all things you've modified lol)
 git pull
-git commit -m <descriptive message explaining what changes you made>
+git commit -m <descriptive message in quotes explaining what changes
+ you made>
 (at the commit step, github might detect that someone else changed code
  in the same place you did. Oops. In this case it puts these really weird 
 lines in the files in the places where there are conflicts, and it's up to you to git commit again :(
