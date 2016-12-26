@@ -18,15 +18,29 @@ THE APP. ALWAYS TEST FIRST AN MAKE SURE THE APP IS OKAY AND YOUR CODE DOES WHAT 
 
 git add <filename> (do this for each file you want changes saved for; 
 github might require that you do this for all things you've modified lol)
-git pull
-git commit -m <descriptive message in quotes explaining what changes
+
+git pull  (this updates your code with the updates that other people have
+pushed. doing this often is a good idea, especially right before you begin 
+working on a new section of code. Similar to the next stage, git might 
+complain and say that two people edited the same file. It'll put some weird
+lines in to show you what happened. If you can resolve the merging problem
+yourself, just edit the weird lines so the code works like its supposed to,
+test that it works, and proceed to the next step.
+
+btw if you want to have the changes you've made overwritten by other people
+you should do
+git checkout . (the period is important)
+in the folder with the files you want "overwritten" and THEN do a git pull)
+
+git commit -m <descriptive message IN QUOTES explaining what changes
  you made>
 (at the commit step, github might detect that someone else changed code
  in the same place you did. Oops. In this case it puts these really weird 
 lines in the files in the places where there are conflicts, and it's up to you to git commit again :(
 git pull (cuz heck why not)
-git push (pray it works)
+git push (pray it works. if not, pull again and try ur best. NEVER PUSH
+BROKEN CODE ALWAYS TEST BEFORE PUSHING)
 
 Now your work has been saved! awesome! use git pull a lot, not just when
  you yourself are committing edits, because it gets other people's work 
-from the server.
+from the server so you can see their beautiful edits :')
