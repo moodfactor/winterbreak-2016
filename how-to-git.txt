@@ -44,3 +44,5 @@ BROKEN CODE ALWAYS TEST BEFORE PUSHING)
 Now your work has been saved! awesome! use git pull a lot, not just when
  you yourself are committing edits, because it gets other people's work 
 from the server so you can see their beautiful edits :')
+
+Victoria plz add to this file lol
