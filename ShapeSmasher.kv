@@ -1,0 +1,30 @@
+
+<TitleScreen>:
+    #Rules for TitleScreen
+    canvas:
+        Color:
+            rgba: 0.8, 1, 0.8, 0.9
+        Rectangle:
+            pos: [self.pos[i] +100*(i+1) for i in [0,1]] # so you see how positioning works
+            size: self.size
+    BoxLayout:
+        size_hint_x: None  #IMPORTANT
+        size_hint_y: None  #IMPORTANT
+        size: [300,200]
+        anchor:
+        pos: self.parent.size[0]/2,self.parent.size[1]/2 #important
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,0,0,1
+            Rectangle:
+                pos: self.pos
+                size:self.size
+        Button:
+            id: but_1
+            on_press: root.better(but_1)
+        Button:
+            id: but_2
+            on_press: root.better(but_2)
+#we're going to want a background (I forget how to do that, maybe use
+#canvas?) and then make sure to add your buttons in the BoxLayout!

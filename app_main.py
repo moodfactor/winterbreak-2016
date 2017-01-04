@@ -1,4 +1,10 @@
 from kivy.app import App
+#from kivy.uix.widget import Widget
+#from kivy.uix.label import Label
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+
 class ShapeSmasherApp(App):
     """The physical App that the user will actually run and interact with.
     Apps generaly start with a titlescreen, and this app should be 
@@ -19,3 +25,16 @@ class ShapeSmasherApp(App):
         the player's current level and score and a button that takes the
         user to an options page."""
         pass
+
+class TitleScreen(FloatLayout):
+
+    def better(self, btn):
+        if(btn == self.ids.but_1):
+            print('Button 1 is better!')
+        elif(btn == self.ids.but_2):
+            print('Button 2 gets buckets, fam!')
+        else:
+            print('Widget not recognized as button 1 or button 2')
+
+if __name__ == '__main__':
+    ShapeSmasherApp().run()
