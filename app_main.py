@@ -4,6 +4,9 @@ from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
+from kivy.properties import ListProperty
+
+import random
 
 class ShapeSmasherApp(App):
     """The physical App that the user will actually run and interact with.
@@ -12,8 +15,8 @@ class ShapeSmasherApp(App):
     def build(self):
         """The build method of this App tells the App what to create when 
         it is run. As of now, when the App is run it displays whatever 
-        is in Title Screen. In the future, the TitleScreen will be made 
-        up of a BoxLayout containing several buttons which give the user 
+        is in Title Screen. In the future, the TitleScreen will contain 
+        a BoxLayout containing several buttons which give the user 
         the option of checking out which game they want to play, going
         to a settings page, and seeng all time leaderboard results."""
         return TitleScreen()
@@ -27,12 +30,31 @@ class ShapeSmasherApp(App):
         pass
 
 class TitleScreen(FloatLayout):
+    """The TitleScreen is the first screen seen by the user upon entering
+    the game; it will eventually contain buttons that will send the user 
+    to either the main game, how-to-play, settings, or leaderboard screens.
+    The TitleScreen's physical components are described in the ShapeSmasher.kv
+    file."""
 
+    # property describing the background color
+    bg_color = ListProperty([0.8,1,0.7,0.9]) 
+    
     def better(self, btn):
+        """Simple method that demonstrates linking the components in the kv file
+        to this python file. This method prints text to the console based on which
+        button is pressed, and additionally changes the text on the buttons. Each 
+        button thinks it is better than the other! This method also changes the 
+        background to a random color using a ListProperty."""
+
+        self.bg_color = [random.random() for i in range(3)]+[1]
         if(btn == self.ids.but_1):
             print('Button 1 is better!')
+            self.ids.but_1.text = 'me!'
+            self.ids.but_2.text = ''
         elif(btn == self.ids.but_2):
             print('Button 2 gets buckets, fam!')
+            self.ids.but_2.text = 'me!'
+            self.ids.but_1.text = ''
         else:
             print('Widget not recognized as button 1 or button 2')
 
