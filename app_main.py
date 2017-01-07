@@ -19,7 +19,7 @@ class ShapeSmasherApp(App):
         a BoxLayout containing several buttons which give the user 
         the option of checking out which game they want to play, going
         to a settings page, and seeng all time leaderboard results."""
-        return TitleScreen()
+        return DemoScreen()
     def switchToGameScreen(self):
         """When completed, this method will return a BoxLayout that will 
         contain two items in a vertical layout: a BoxLayout and a
@@ -29,7 +29,7 @@ class ShapeSmasherApp(App):
         user to an options page."""
         pass
 
-class TitleScreen(FloatLayout):
+class DemoScreen(FloatLayout):
     """The TitleScreen is the first screen seen by the user upon entering
     the game; it will eventually contain buttons that will send the user 
     to either the main game, how-to-play, settings, or leaderboard screens.
