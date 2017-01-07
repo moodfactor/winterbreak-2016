@@ -36,15 +36,15 @@ class Shape(Button):
         clear_method before it is actually removed from the board."""
 
     def on_press(self):
-        pass
         """ This method will call decrement_health. In the case that the clear_method
         is not a tap, then on_press will be overridden in the constructor with an
         appropriate empty lambda function. The clear behavior will be implemented in
         the main game class and the update behavior will be implemented in the row class."""
+        pass
 
     def decrement_health(self):
-        pass
         """ This method will decrement the health."""
+        pass
 
 # Evan's work goes below, Jason's Work goes above
 
