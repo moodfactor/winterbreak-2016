@@ -31,8 +31,8 @@ class SettingsScreen(Screen):
     pass
 
 class LeaderboardScreen(Screen):
-    """Contains a scrollable? list of locally stored scores. Once we implement different
-    gamemodes, we can have multiple pages."""
+    """Contains a scrollable? list of locally stored scores. Once we implement
+    different gamemodes, we can have multiple pages."""
     pass
 
 class QWERTYScreen(RelativeLayout):
