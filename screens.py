@@ -8,22 +8,31 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 """This file contains all the different screens and/or types of screens
 the user will see over the course of using this app."""
 
-class TitleScreen(GridLayout):
+class TitleScreen(Screen):
     """The title screen is the first screen that users will see
     when they open this App. As of now it is a subclass of GridLayout but
     lacks any actualy components."""
     pass
 
 class MainGameScreen(Screen):
+    """Contains the game, score/timer, multiplier, settings button, etc.
+    See Darren's drawing for reference."""
     pass
 
 class InstructionScreen(Screen):
+    """Contains basic instructions and visuals to describe game mechanics.
+    Depending on the complexity of the mechanics, there may be multiple pages.
+    There should be a way to go between here and the titlescreen."""
     pass
 
 class SettingsScreen(Screen):
+    """Contains settings such as sound effect mute, soundtrack mute, resume,
+    main menu, and leaderboards."""
     pass
 
 class LeaderboardScreen(Screen):
+    """Contains a scrollable? list of locally stored scores. Once we implement different
+    gamemodes, we can have multiple pages."""
     pass
 
 class QWERTYScreen(RelativeLayout):
