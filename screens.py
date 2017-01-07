@@ -3,6 +3,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 """This file contains all the different screens and/or types of screens
 the user will see over the course of using this app."""
@@ -13,16 +14,16 @@ class TitleScreen(GridLayout):
     lacks any actualy components."""
     pass
 
-class MainGameScreen():
+class MainGameScreen(Screen):
     pass
 
-class InstructionScreen():
+class InstructionScreen(Screen):
     pass
 
-class SettingsScreen():
+class SettingsScreen(Screen):
     pass
 
-class LeaderboardScreen():
+class LeaderboardScreen(Screen):
     pass
 
 class QWERTYScreen(RelativeLayout):
