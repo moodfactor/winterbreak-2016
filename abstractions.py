@@ -112,8 +112,6 @@ class GameState():
     as a Widget of some sort in which the contents of this game will 
     actually be displayed."""
 
-    mode_dispatch = {'timed': (update_timed_mode,1) , 'health': (update_health_mode, 0.25)}
-    #dispatch dictionary for different game modes and update times
 
 
     def __init__(self, game_mode, row_list, game_screen):
@@ -190,6 +188,8 @@ class GameState():
         pass
 
 
+    mode_dispatch = {'timed': (update_timed_mode,1) , 'health': (update_health_mode, 0.25)}
+    #dispatch dictionary for different game modes and update times
 
     def game_over(self):
         """This method should be called when a condition is reached such that the game
