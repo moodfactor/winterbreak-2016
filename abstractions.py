@@ -52,6 +52,9 @@ class Shape(Button):
         or shaking. This leaves room for future gamemodes.
         You must check the clear_method of the shape. """
 
+        if self.clear_method != 'tap':
+            self.on_press = lambda : None
+
         self.health = 1
         """ health describes how many time a given shape has to be 'cleared' using its
         clear_method before it is actually removed from the board."""
@@ -61,7 +64,7 @@ class Shape(Button):
         is not a tap, then on_press will be overridden in the constructor with an
         appropriate empty lambda function. The clear behavior will be implemented in
         the main game class and the update behavior will be implemented in the row class."""
-        pass
+        self.decrement_health()
 
     def decrement_health(self):
         """ This method will decrement the health."""
