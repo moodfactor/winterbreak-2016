@@ -1,6 +1,26 @@
+<SettingsScreen>:
+    BoxLayout:
+        id:main_layout
+        size_hint_x: None
+        size_hint_y: None
+        orientation: 'vertical'
+        size: [0.5*self.parent.size[0],0.7*self.parent.size[1]]
+        pos: [self.parent.size[0]/3 - self.size[0]/2, self.parent.size[1]/2 - self.size[1]/2]
+        canvas:
+            Color:
+                rgba: 1,0,0,1
+            Rectangle:
+                pos: self.pos
+                size:self.size
+        Button:
+            id: mute_btn
+            text: "Mute"
+        Button:
+            id: back_btn
+            text: "Back to home"
 
 <DemoScreen>:
-    #Rules for TitleScreen
+    #Rules for DemoScreen
     canvas:
         Color:
             rgba: root.bg_color

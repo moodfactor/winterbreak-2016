@@ -6,6 +6,7 @@ from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ListProperty
+from screens import *
 Builder.load_file("ShapeSmasher.kv")
 
 import random
@@ -21,7 +22,7 @@ class ShapeSmasherApp(App):
         a BoxLayout containing several buttons which give the user 
         the option of checking out which game they want to play, going
         to a settings page, and seeng all time leaderboard results."""
-        return DemoScreen()
+        return SettingsScreen()
     def switchToGameScreen(self):
         """When completed, this method will return a BoxLayout that will 
         contain two items in a vertical layout: a BoxLayout and a
@@ -30,6 +31,7 @@ class ShapeSmasherApp(App):
         the player's current level and score and a button that takes the
         user to an options page."""
         pass
+
 
 class DemoScreen(FloatLayout):
     """The TitleScreen is the first screen seen by the user upon entering
