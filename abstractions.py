@@ -177,6 +177,8 @@ class GameState():
         self.mode = game_mode
         self.rows = row_list
         self.screen = game_screen
+        self.open_spaces = len(self.rows) * self.rows[0].length
+        self.update_time = mode_dispatch[self.mode][1]
 
     def draw(self):
         """This method is purely devoted to looking at the contents
@@ -236,7 +238,7 @@ class GameState():
         pass
 
 
-    mode_dispatch = {'timed': (update_timed_mode,1) , 'health': (update_health_mode, 0.25)}
+    mode_dispatch = {'timed': (self.update_timed_mode,1) , 'health': (self.update_health_mode, 0.25)}
     #dispatch dictionary for different game modes and update times
 
     def game_over(self):
