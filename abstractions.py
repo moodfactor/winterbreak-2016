@@ -246,7 +246,7 @@ class GameState():
         should also carry with it the score stored by this gameState so it can be placed
         onto the leaderboard."""
         pass
-if __name__ == '__main__':
+if __name__ == '__main__': #for testing purposes
     r = Row(4, 50, 50)
     g = GameState('timed', [r], 'foo')
     s1 = Shape('square', 1, g, 5)
