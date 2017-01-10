@@ -2,6 +2,8 @@
 displayed in the main game screen."""
 
 from kivy.uix.button import Button
+from kivy.properties import ListProperty
+import random
 
 class Shape(Button):
     """The Shape class is a generalized abstraction for the individual shapes that
@@ -18,7 +20,28 @@ class Shape(Button):
     properties, all handling of graphics are abstracted and will occur in the
     GameState."""
 
-    def __init__(self, shape_type, side_length, color_str, game_state=None, timer=None, clear_method='tap', health=1):
+    dict_colors = {'violet': [148/255, 0, 211/255, 1],
+                         'blue': [0, 0, 1, 1],
+                         'green': [0, 1, 0, 1],
+                         'yellow': [1, 1, 0, 1],
+                         'red': [1, 0, 0, 1]}
+
+    list_colors = ['violet','blue','green','yellow','red']
+
+    """IMPORTANT
+    Because the .kv file can only use class attributes as widget properties,
+    the default color_str must be determined randomly as a class attribute and
+    the dictionary must be declared here.
+
+    In order to randomly select a color, you must declare in KV
+    background_color: root.dict_colors[random.choice(root.list_colors)]
+
+    In order to manually select a color, you must declare in KV
+    background_color: root.dict_colors['color']
+    """
+
+    def __init__(self, shape_type, side_length, game_state=None, timer=None, clear_method='tap', health=1):
+        super().__init__()
 
         self.shape_type = shape_type
         """ shape_type will be a string describing the type of shape_type
@@ -29,13 +52,6 @@ class Shape(Button):
         The side_length will need to be determined such that the tesselation fits within
         the width and height of the row. To do this, you will need to mathematically
         determine how long the side of a given shape will be using the size of the row."""
-
-        self.color_str = color_str
-        """ color will be a string describing the actual color that a shape will have.
-        This string will be the key to a dictionary of colors where the corresponding
-        values are RGBA lists as used by kivy.
-        Additionally, there will be a list of color strings that can be randomly pulled
-        from in order to randomize colors."""
 
         self.game_state = game_state
         """game_state is a reference to the GameState instance in which this Shape is being
