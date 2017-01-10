@@ -65,7 +65,7 @@ class Shape(Button):
 
     def decrement_health(self):
         """ This method will decrement the health."""
-        pass
+        self.health -= 1
 
 # Evan's work goes below, Jason's Work goes above
 
