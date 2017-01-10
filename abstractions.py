@@ -107,27 +107,40 @@ class Row():
         is of length row_length. Also stores x_offset and
         y_offset as instance variables named x_offset and
         y_offset"""
-        pass
+        self.length = row_length
+        self.x_offset = x_offset
+        self.y_offset = y_offset
+        self.shapes = [None for _ in range(row_length)]
 
     def add_shape(self, shape, pos):
         """This method asserts that the given shape is indeed
         an instance of the Shape class and then adds the shape
         to this row's list of shapes at the specified position
         ONLY IF THAT POSITION IS CURRENTLY NONE."""
-        pass
+        assert type(shape) == Shape, 'Object is not a shape'
+        if self.shapes[pos] != None: 
+            print('Position in grid is already occupied')
+        else:
+            self.shapes[pos] = shape
+
 
     def update(self):
         """This method iterates through the list of shapes and
         Nones contained by this Row. For each non-None Shape in
         the list, this method checks if that Shape has 0 health
         remaining. If so, it removes that shape from the board."""
-        pass
+        for i in range(len(self.shapes)):
+            if self.shapes[i] and self.shapes[i].health <= 0:
+                self.remove_shape(i)
 
     def remove_shape(self, index):
         """This method removes the shape at the given list index
         from this Row's list of shapes by setting the list value
         at that index to be None. it also uses the Shape's stored
         GameState to increase the score of that gameState by 10 points."""
+        self.shapes[index].game_state.score += 10
+        self.shapes[index] = None
+
 
 
 class GameState():
@@ -160,7 +173,10 @@ class GameState():
         This constructor must also iterate through each shape in each Row
         (if there are any non-None Shapes to start with) to make sure those
         Shapes have a correctly initialized GameState attribute."""
-        pass
+        self.score = 0
+        self.mode = game_mode
+        self.rows = row_list
+        self.screen = game_screen
 
     def draw(self):
         """This method is purely devoted to looking at the contents
@@ -230,3 +246,13 @@ class GameState():
         should also carry with it the score stored by this gameState so it can be placed
         onto the leaderboard."""
         pass
+if __name__ == '__main__':
+    r = Row(4, 50, 50)
+    g = GameState('timed', [r], 'foo')
+    s1 = Shape('square', 1, g, 5)
+    r.add_shape(s1, 3)
+    print(r.shapes[3].game_state.mode)
+    s1.decrement_health()
+    r.update()
+    print(r.shapes[3])
+
