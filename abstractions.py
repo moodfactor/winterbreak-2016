@@ -118,7 +118,7 @@ class Row():
         to this row's list of shapes at the specified position
         ONLY IF THAT POSITION IS CURRENTLY NONE."""
         assert type(shape) == Shape, 'Object is not a shape'
-        if self.shapes[pos] != None: 
+        if self.shapes[pos] != None:
             print('Position in grid is already occupied')
         else:
             self.shapes[pos] = shape
@@ -180,12 +180,26 @@ class GameState():
         self.open_spaces = len(self.rows) * self.rows[0].length
         self.update_time = mode_dispatch[self.mode][1]
 
+    draw_dispatch = {'triangle': draw_triangle, 'square': draw_square, 'hexagon': draw_hexagon}
+
     def draw(self):
         """This method is purely devoted to looking at the contents
         of this GameState's row_list and displaying that data on the
         game_screen. Each spot on the physical screen will be drawn
         using either a Shape's image representation or an empty shape
         representation (up to you, can just be nothing if you want)."""
+        pass
+
+    def draw_triange(self):
+        """This will handle drawing of triangles"""
+        pass
+
+    def draw_square(self):
+        """This will handle drawing of squares"""
+        pass
+
+    def draw_hexagon(self):
+        """This will handle drawing of squares""""
         pass
 
     def update_event(self, event):
@@ -206,7 +220,7 @@ class GameState():
         that is mean to be called on regular intervals of time. The
         method simply makes a call to the correct update method for this GameState's
         game mode as determined by the game_mode string (handled with a dispatch dictionary)."""
-        pass
+        mode_dispatch[self.mode]()
 
     def update_timed_mode(self):
         """This method is used specifically to update the game in timed mode.
@@ -257,4 +271,3 @@ if __name__ == '__main__': #for testing purposes
     s1.decrement_health()
     r.update()
     print(r.shapes[3])
-
