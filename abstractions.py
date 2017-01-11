@@ -221,7 +221,7 @@ class GameState():
         that is mean to be called on regular intervals of time. The
         method simply makes a call to the correct update method for this GameState's
         game mode as determined by the game_mode string (handled with a dispatch dictionary)."""
-        GameState.mode_dispatch[self.mode][0]()
+        GameState.mode_dispatch[self.mode][0](self)
 
     def update_timed_mode(self): #Not complete
         """This method is used specifically to update the game in timed mode.
