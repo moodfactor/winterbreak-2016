@@ -223,7 +223,7 @@ class GameState():
         game mode as determined by the game_mode string (handled with a dispatch dictionary)."""
         GameState.mode_dispatch[self.mode][0]()
 
-    def update_timed_mode(self):
+    def update_timed_mode(self): #Not complete
         """This method is used specifically to update the game in timed mode.
         This method will be called once every second and will reduce each Shape's
         simple integer clock by 1. If any of these clocks goes to 0, this method
@@ -244,7 +244,33 @@ class GameState():
 
         This will ensure wild chaos and hilarity as differing numbers of shapes are
         added every second in random places."""
-        pass
+        shapes_added = 0
+        spaces_not_filled = []
+        initial_open_spaces = self.open_spaces
+        while shapes_added < (2/3) * initial_open_spaces:
+            for r in range(len(self.rows)): #iterates through list of rows
+                row = self.rows[r]
+                for col in range(len(row.shapes)): #iterates through places in each row
+                    if row.shapes[col]: #if the 'place' has a shape
+                        shape = row.shapes[col]                        
+                        shape.timer -= 1
+                        if shape.timer == 0:
+                            self.game_over()
+                    else: #if the place does not have a shape
+                        if random.random() <= .15: 
+                            row.add_shape(Shape('square', 1, self, 1) ,col) #this shape is arbitrary for the time being
+                            shapes_added += 1
+                            self.open_spaces -= 1
+                        else:
+                            spaces_not_filled += [(r,col)]
+
+        while shapes_added < 5 and self.open_spaces != 0:
+            coord = spaces_not_filled[random.randint(0,len(spaces_not_filled) - 1)] #picks out a coordinate pair from a space that wasn't filled
+            row_index = coord[0]
+            row = self.rows[row_index]
+            column = coord[1]
+            row.add_shape(Shape('square', 1, self, 1), column)
+
 
     def update_health_mode(self):
         """This method is used to update the game in health mode, a mode where shapes
