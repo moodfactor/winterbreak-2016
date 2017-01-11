@@ -180,7 +180,6 @@ class GameState():
         self.open_spaces = len(self.rows) * self.rows[0].length
         self.update_time = mode_dispatch[self.mode][1]
 
-    #draw_dispatch = {'triangle': draw_triangle, 'square': draw_square, 'hexagon': draw_hexagon}
 
     def draw(self):
         """This method is purely devoted to looking at the contents
@@ -201,6 +200,8 @@ class GameState():
     def draw_hexagon(self):
         """This will handle drawing of hexagons"""
         pass
+
+    draw_dispatch = {'triangle': draw_triangle, 'square': draw_square, 'hexagon': draw_hexagon}
 
     def update_event(self, event):
         """This is a general method used to update the game data when
