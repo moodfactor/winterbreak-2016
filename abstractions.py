@@ -178,7 +178,7 @@ class GameState():
         self.rows = row_list
         self.screen = game_screen
         self.open_spaces = len(self.rows) * self.rows[0].length
-        self.update_time = mode_dispatch[self.mode][1]
+        self.update_time = GameState.mode_dispatch[self.mode][1]
 
 
     def draw(self):
@@ -263,6 +263,7 @@ class GameState():
         should also carry with it the score stored by this gameState so it can be placed
         onto the leaderboard."""
         pass
+
 if __name__ == '__main__': #for testing purposes
     r = Row(4, 50, 50)
     g = GameState('timed', [r], 'foo')
