@@ -180,7 +180,7 @@ class GameState():
         self.open_spaces = len(self.rows) * self.rows[0].length
         self.update_time = mode_dispatch[self.mode][1]
 
-    draw_dispatch = {'triangle': draw_triangle, 'square': draw_square, 'hexagon': draw_hexagon}
+    #draw_dispatch = {'triangle': draw_triangle, 'square': draw_square, 'hexagon': draw_hexagon}
 
     def draw(self):
         """This method is purely devoted to looking at the contents
@@ -190,7 +190,7 @@ class GameState():
         representation (up to you, can just be nothing if you want)."""
         pass
 
-    def draw_triange(self):
+    def draw_triangle(self):
         """This will handle drawing of triangles"""
         pass
 
@@ -199,7 +199,7 @@ class GameState():
         pass
 
     def draw_hexagon(self):
-        """This will handle drawing of squares""""
+        """This will handle drawing of hexagons"""
         pass
 
     def update_event(self, event):
@@ -252,7 +252,7 @@ class GameState():
         pass
 
 
-    mode_dispatch = {'timed': (self.update_timed_mode,1) , 'health': (self.update_health_mode, 0.25)}
+    mode_dispatch = {'timed': (update_timed_mode,1) , 'health': (update_health_mode, 0.25)}
     #dispatch dictionary for different game modes and update times
 
     def game_over(self):
