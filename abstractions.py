@@ -276,20 +276,20 @@ class GameState():
         """This method is used to update the game in health mode, a mode where shapes
         with variable health values are added quickly to the screen and the player loses
         if the entire grid fills up with shapes. (Alex pls finsh am tired no quiero trabajar)"""
-        """shapes_added = 0
+        shapes_added = 0
         spaces_not_filled = []
-        inital_open_spaces = self.open_spaces
+        initial_open_spaces = self.open_spaces
         while shapes_added < (1/3) * initial_open_spaces:
             for r in range(len(self.rows)):
                 row = self.rows[r]
                 for col in range(len(row.shapes)):
                     if not row.shapes[col]:
-                        if random.random() <= self.difficulty:
+                        if random.random() <= .15:
                             row.add_shape(Shape('square', 1, self, 1), col)
                             shapes_added += 1
                             self.open_spaces -= 1
                             if self.open_spaces == 0:
-                                self.game_over
+                                self.game_over()
                         else:
                             spaces_not_filled += [(r, col)]
         while shapes_added < 2 and self.open_spaces > 1:
@@ -299,8 +299,8 @@ class GameState():
             column = coord[1]
             row.add_shape(Shape('square', 1, self, 1), column)
             shapes_added += 1
-            self.open_spaces -= 1"""
-        pass
+            self.open_spaces -= 1
+
 
     mode_dispatch = {'timed': (update_timed_mode,1) , 'health': (update_health_mode, 0.25)}
     #dispatch dictionary for different game modes and update times
@@ -326,7 +326,8 @@ class GameState():
     r = Row(2, 50, 50)
     g = GameState('health', [r], 'foo')
     s1 = Shape('square', 1, g, 5)
-    r.add_shape(s1, 0)
+    print(r.shapes)
+    g.update()
     print(r.shapes)
     g.update()
     print(r.shapes)"""
