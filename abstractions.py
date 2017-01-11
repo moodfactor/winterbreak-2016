@@ -221,7 +221,7 @@ class GameState():
         that is mean to be called on regular intervals of time. The
         method simply makes a call to the correct update method for this GameState's
         game mode as determined by the game_mode string (handled with a dispatch dictionary)."""
-        mode_dispatch[self.mode]()
+        GameState.mode_dispatch[self.mode]()
 
     def update_timed_mode(self):
         """This method is used specifically to update the game in timed mode.
@@ -250,8 +250,31 @@ class GameState():
         """This method is used to update the game in health mode, a mode where shapes
         with variable health values are added quickly to the screen and the player loses
         if the entire grid fills up with shapes. (Alex pls finsh am tired no quiero trabajar)"""
+        """shapes_added = 0
+        spaces_not_filled = []
+        inital_open_spaces = self.open_spaces
+        while shapes_added < (1/3) * initial_open_spaces:
+            for r in range(len(self.rows)):
+                row = self.rows[r]
+                for col in range(len(row.shapes)):
+                    if not row.shapes[col]:
+                        if random.random() <= self.difficulty:
+                            row.add_shape(Shape('square', 1, self, 1), col)
+                            shapes_added += 1
+                            self.open_spaces -= 1
+                            if self.open_spaces == 0:
+                                self.game_over
+                        else:
+                            spaces_not_filled += [(r, col)]
+        while shapes_added < 2 and self.open_spaces > 1:
+            coord = spaces_not_filled[random.randint(0, len(spaces_not_filled) - 1)]
+            row_index = coord[0]
+            row = self.rows[row_index]
+            column = coord[1]
+            row.add_shape(Shape('square', 1, self, 1), column)
+            shapes_added += 1
+            self.open_spaces -= 1"""
         pass
-
 
     mode_dispatch = {'timed': (update_timed_mode,1) , 'health': (update_health_mode, 0.25)}
     #dispatch dictionary for different game modes and update times
@@ -264,7 +287,7 @@ class GameState():
         onto the leaderboard."""
         pass
 
-if __name__ == '__main__': #for testing purposes
+"""if __name__ == '__main__': #for testing purposes
     r = Row(4, 50, 50)
     g = GameState('timed', [r], 'foo')
     s1 = Shape('square', 1, g, 5)
@@ -272,4 +295,12 @@ if __name__ == '__main__': #for testing purposes
     print(r.shapes[3].game_state.mode)
     s1.decrement_health()
     r.update()
-    print(r.shapes[3])
+    print(r.shapes[3])"""
+"""if __name__ == '__main__': #for testing purposes
+    r = Row(2, 50, 50)
+    g = GameState('health', [r], 'foo')
+    s1 = Shape('square', 1, g, 5)
+    r.add_shape(s1, 0)
+    print(r.shapes)
+    g.update()
+    print(r.shapes)"""
