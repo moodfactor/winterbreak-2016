@@ -12,9 +12,18 @@
             Rectangle:
                 pos: self.pos
                 size:self.size
-        Button:
-            id: mute_btn
-            text: "Mute"
+        BoxLayout:
+            Label:
+                text:'Sound?'
+            CheckBox:
+                canvas:
+                    Color:
+                        rgba: 0,0,1,0.25
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                id:sound_box
+                on_active: root.play_or_stop()
         Button:
             id: back_btn
             text: "Back to home"

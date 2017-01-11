@@ -6,7 +6,10 @@ from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ListProperty
+from kivy.uix.checkbox import CheckBox
+
 from screens import *
+
 Builder.load_file("ShapeSmasher.kv")
 
 import random
@@ -31,7 +34,6 @@ class ShapeSmasherApp(App):
         the player's current level and score and a button that takes the
         user to an options page."""
         pass
-
 
 class DemoScreen(FloatLayout):
     """The TitleScreen is the first screen seen by the user upon entering

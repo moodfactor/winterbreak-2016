@@ -5,6 +5,8 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+from kivy.core.audio import SoundLoader, Sound
+
 """This file contains all the different screens and/or types of screens
 the user will see over the course of using this app."""
 
@@ -28,7 +30,14 @@ class InstructionScreen(Screen):
 class SettingsScreen(Screen):
     """Contains settings such as sound effect mute, soundtrack mute, resume,
     main menu, and leaderboards."""
-    pass
+    def __init__(self):
+        super().__init__()
+        self.M = SoundLoader.load('./bgmusic.mp3')
+    def play_or_stop(self):
+        if self.ids.sound_box.active:
+            self.M.play()
+        else:
+            self.M.stop()
 
 class LeaderboardScreen(Screen):
     """Contains a scrollable? list of locally stored scores. Once we implement
