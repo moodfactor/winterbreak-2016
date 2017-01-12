@@ -25,7 +25,7 @@ class ShapeSmasherApp(App):
         a BoxLayout containing several buttons which give the user 
         the option of checking out which game they want to play, going
         to a settings page, and seeng all time leaderboard results."""
-        return SettingsScreen()
+        return LeaderboardScreen()
     def switchToGameScreen(self):
         """When completed, this method will return a BoxLayout that will 
         contain two items in a vertical layout: a BoxLayout and a

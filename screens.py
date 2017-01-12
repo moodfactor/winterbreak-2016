@@ -4,8 +4,12 @@ from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import ScreenManager, Screen
-
 from kivy.core.audio import SoundLoader, Sound
+
+# for the LeaderboardScreen
+from kivy.uix.boxlayout import BoxLayout
+from kivy.properties import ObjectProperty
+from kivy.adapters.listadapter import ListAdapter 
 
 """This file contains all the different screens and/or types of screens
 the user will see over the course of using this app."""
@@ -42,7 +46,18 @@ class SettingsScreen(Screen):
 class LeaderboardScreen(Screen):
     """Contains a scrollable? list of locally stored scores. Once we implement
     different gamemodes, we can have multiple pages."""
-    pass
+
+    def add_score(self):
+        """Called at completion of game, adds the score to list"""
+        pass
+
+
+    def replace_score(self):
+        """when list becomes too long:
+           1) remove lowest score 
+           2) add latest score in appropriate position (highest score top, lowest bottom)"""
+        pass
+
 
 class QWERTYScreen(RelativeLayout):
     """An example of another screen. We might need 4 or 5 screens to
