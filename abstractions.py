@@ -71,7 +71,7 @@ class Shape(Button):
         if self.clear_method != 'tap':
             self.on_press = lambda : None
 
-        self.health = 1
+        self.health = health
         """ health describes how many time a given shape has to be 'cleared' using its
         clear_method before it is actually removed from the board."""
 
@@ -252,12 +252,12 @@ class GameState():
                 row = self.rows[r]
                 for col in range(len(row.shapes)): #iterates through places in each row
                     if row.shapes[col]: #if the 'place' has a shape
-                        shape = row.shapes[col]                        
+                        shape = row.shapes[col]
                         shape.timer -= 1
                         if shape.timer == 0:
                             self.game_over()
                     else: #if the place does not have a shape
-                        if random.random() <= .15: 
+                        if random.random() <= .15:
                             row.add_shape(Shape('square', 1, self, 1) ,col) #this shape is arbitrary for the time being
                             shapes_added += 1
                             self.open_spaces -= 1
